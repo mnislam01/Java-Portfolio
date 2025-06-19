@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/about}">About Me</a></li>
+        <li><a th:href="@{/projects}">Projects</a></li>
+        <li><a th:href="@{/contacts}">Contact</a></li>
+    </ul>
+</nav>
+<main>
+    <section class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <div th:each="project : ${projects}" class="project-card" style="background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 1.5rem; transition: box-shadow 0.2s;">
+                <img th:src="@{${project.imageUrl}}" alt="Project image" style="width:100%; border-radius:6px; margin-bottom:1rem;">
+                <h3 th:text="${project.name}" style="margin-top: 0; color: #2c3e50;"></h3>
+                <p th:text="${project.description}" style="color: #555;"></p>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
